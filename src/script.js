@@ -327,3 +327,5 @@ var spinner = function() {
 					}));
 					return {}
 				}();
+
+export default spinner
