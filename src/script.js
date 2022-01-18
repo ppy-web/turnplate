@@ -124,8 +124,8 @@ var spinner = function() {
 						straightTextOffset: 10,
 						straightTextOffsetInner: 20,
 						fontSize: 12,
-						colors: [...[, , , , ]].map(((t, e) => `var(--c${e}-bg)`)),
-						patternColors: [...[, , , , ]].map(((t, e) => `var(--c${e})`)),
+						colors: [...["", "", "", "", ""]].map(((t, e) => `var(--c${e}-bg)`)),
+						patternColors: [...["", "", "", "", ""]].map(((t, e) => `var(--c${e})`)),
 						patterns: ["m1 2a1 1 0 102 0a1 1 0 10-2 0", "m0 0h1l3 3v1h-1l-3-3z M3 0h1v1z M0 3v1h1z",
 							"m0 4v-1l2-2l2 2v1l-2-2z"
 						],
@@ -212,7 +212,8 @@ var spinner = function() {
 					};
 					window.updateCopyBox = k;
 					const M = {};
-					["spinner", "form", "list", "tada", "tada-text", "remove-button", "remove-name", "reset-wheel", "sound"].forEach(
+          const MARR =["spinner","form" ,"list", "tada", "tada-text", "remove-button", "remove-name", "reset-wheel", "sound"]
+					MARR.forEach(
 						(t => {
 							M[w(t)] = document.getElementById(t)
 						}));
@@ -297,7 +298,7 @@ var spinner = function() {
 						t && t.values && (M.list.value = t.values.join("\n"), document.getElementById("show-more").checked = !1)
 					})(), z(), M.form.addEventListener("submit", (t => {
 						t && t.preventDefault();
-						let e = new FormData(form),
+						let e = new FormData(M.form),
 							n = {};
 						for (let [t, i] of e.entries()) n[t] = i;
 						B.sound = n.sound || !1, (() => {
@@ -326,6 +327,6 @@ var spinner = function() {
 						t.target.checked && $()
 					}));
 					return {}
-				}();
+				};
 
 export default spinner
