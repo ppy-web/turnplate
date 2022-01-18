@@ -1,5 +1,11 @@
 <template>
   <div id="app">
+    <Time v-slot="timeObj"
+          :time="countDown">
+      <div class="count-down">
+        {{timeObj.d}}天{{timeObj.hh}}小时{{timeObj.mm}}分钟{{timeObj.ss}}秒
+      </div>
+    </Time>
     <input id="default"
            name="changer"
            type=radio
@@ -116,9 +122,22 @@
 
 <script>
 import spinner from "./script"
+import Time from "@/components/Time"
 
 export default {
   name: 'App',
+  data () {
+    return {
+      timeObj: {
+        d: "1",
+        hh: "22",
+        mm: "11",
+        ss: "22"
+      },
+      countDown: "2022-01-20"
+    }
+  },
+  components: { Time },
   mounted () {
     spinner()
   },
